@@ -102,10 +102,10 @@ app.post("/person/edit/:id", function(req, res){
 
 app.get("/person/delete/:id", async function(req, res){
    var {id} = req.params;
-   const deletedDocument = await Person.findByIdAndRemove(id);
+   const deletedPerson = await Person.findByIdAndRemove(id);
 
-   if (!deletedDocument) {
-      return res.status(404).json({ message: 'Document not found.' });
+   if (!deletedPerson) {
+      return res.status(404).json({ message: 'Person not found.' });
    }
 
    req.flash('success', 'Person deleted successfully');
