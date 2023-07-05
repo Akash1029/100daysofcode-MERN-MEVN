@@ -1,2 +1,2 @@
-# learing-MERN
-Learnng MERN STACK.
+# learning-MERN
+Learning MERN STACK.
