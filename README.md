@@ -9,22 +9,39 @@ Each day, I will be working on a different project, learning new concepts, and d
 # Goals
 The main goals of this challenge are:
 
-    1. Improve my understanding of the MERN/MEVN stack and its individual components.
-    1. Gain practical experience by working on real-world projects.
-    1. Strengthen my coding skills and problem-solving abilities.
-    1. Learn how to integrate various technologies and tools within the MERN/MEVN stack.
-    1. Document my progress, learnings, and challenges faced throughout the journey.
+1. Improve my understanding of the MERN/MEVN stack and its individual components.
+2. Gain practical experience by working on real-world projects.
+3. Strengthen my coding skills and problem-solving abilities.
+4. Learn how to integrate various technologies and tools within the MERN/MEVN stack.
+5. Document my progress, learnings, and challenges faced throughout the journey.
+
+# Project Structure
+The repository follows a specific structure to organize the projects and code developed during the challenge:
+
+        .
+    ├── day-1/
+    │   ├── project-name/
+    │   │   ├── backend/      # Backend code for the project
+    │   │   └── frontend/     # Frontend code for the project
+    │   └── README.md        # Documentation for the project
+    ├── day-2/
+    │   └── ...
+    ├── ...
+    └── README.md            # Main README file
+
+Each day's work is organized within a folder named day-X, where X represents the day number. Inside each day's folder, there will be a project folder containing the backend and frontend code, along with a README file providing documentation for that specific project.
+
 
 # Progress and Documentation
 I will be documenting my progress, learnings, and challenges faced throughout the challenge in the respective project README files. Each project's README file will include:
 
-    1. Project description and goals
-    1. Technologies used
-    1. Installation instructions
-    1. Usage and features
-    1. Learnings and key takeaways
-    1. Challenges encountered
-    1. Resources and references
+1. Project description and goals
+2. Technologies used
+3. Installation instructions
+4. Usage and features
+5. Learnings and key takeaways
+6. Challenges encountered
+7. Resources and references
 
 Feel free to explore the individual project folders for more detailed documentation and code.
 
@@ -38,7 +55,7 @@ To get started with this repository, follow the steps below:
 2. Navigate to the project folder of a specific day:
 
     cd day-X/project-name/
-    where X represents the day number.
+    
 3. Follow the instructions provided in the project's README file to set up and run the project.
 4. Explore the code, experiment, and have fun!
 
