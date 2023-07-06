@@ -108,7 +108,7 @@ To test this go to http://localhost:3000/routes/123. The following response will
 
 ![Route Parameters](/day-1/hello-world/public/route-parameter.png)
 
-Hurray `:partying_face:` we can create dynamic routes. 
+Hurray :partying_face: we can create dynamic routes. 
 
 Whenever we enter an undefined route in browser we get "Cannot GET <your-request-route>" message as response. To replace This message with 404 not found page. we can do it by adding this simple route at the end of all routes -
 ```js
