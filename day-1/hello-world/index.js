@@ -23,4 +23,8 @@ var routes = require('./routes.js');
 
 app.use('/routes', routes);
 
+router.get('*', function(req, res){
+    res.send('Sorry, this is an invalid URL.');
+});
+
 app.listen(3000);
