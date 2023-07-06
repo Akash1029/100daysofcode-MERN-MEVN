@@ -44,6 +44,17 @@ I will be documenting my progress, learnings, and challenges faced throughout th
 7. Resources and references
 
 Feel free to explore the individual project folders for more detailed documentation and code.
+<br>
+# Days
+
+<details>
+<summary>Full List</summary>
+
+- **Days 1:** Learning Express Js (Covering Basic Express JS Methods (_Envirounment, Hello world, Routing, Midleware_ ))
+</details>
+
+<br>
+
 
 # Getting Started
 
