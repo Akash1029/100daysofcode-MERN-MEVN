@@ -83,9 +83,9 @@ curl -X POST "http://localhost:3000/hello"
 ```
 
 ## Routers
-Defining routes like above is very tedious to maintain. To separate the routes from our main index.js file, I'll be Express.Router to call all the routes from routes.js to index file.
+Defining routes like above is very tedious to maintain. To separate the routes from our main index.js file, I'll be Express.Router to call all the routes from things.js to index file.
 
-The app.use function call on route '/routes' attaches the things router with this route. Now whatever requests our app gets at the '/routes', will be handled by our routes.js router. The '/' route in routes.js is actually a subroute of '/routes'. Visit localhost:3000/routes/ and you will see the following output.
+The app.use function call on route '/things' attaches the things router with this route. Now whatever requests our app gets at the '/things', will be handled by our things.js router. The '/' route in things.js is actually a subroute of '/things'. Visit localhost:3000/things/ and you will see the following output.
 
 ![Express Router](/day-1/hello-world/public/express-router.png)
 
@@ -98,13 +98,13 @@ Now we know how to define Route. but these routes are Static or fixed. To make `
 **_Route Parameters_** are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys.
 
 Here is an example of a dynamic route − 
-add the following code in routes.js file.
+add the following code in things.js file.
 ```js
     router.get('/:id', function(req, res){
         res.send('The id you specified is ' + req.params.id);
     });
 ```
-To test this go to http://localhost:3000/routes/123. The following response will be displayed.
+To test this go to http://localhost:3000/things/123. The following response will be displayed.
 
 ![Route Parameters](/day-1/hello-world/public/route-parameter.png)
 
@@ -117,6 +117,86 @@ Whenever we enter an undefined route in browser we get "Cannot GET <your-request
         res.send('Sorry, this is an invalid URL.');
     });
 ```
+
+## ExpressJs Middleware
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
+
+Middleware functions can perform the following tasks:
+
+- Execute any code.
+- Make changes to the request and the response objects.
+- End the request-response cycle.
+- Call the next middleware in the stack.
+
+If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+The following figure shows the elements of a middleware function call:
+
+![ExpressJs Middleware](/day-1/hello-world/public/express-middleware.png)
+
+Here is a simple example of a middleware function in action −
+
+```js
+var express = require('express');
+var app = express();
+
+//Simple request time logger
+app.use(function(req, res, next){
+   console.log("A new request received at " + Date.now());
+   
+   //This function call is very important. It tells that more processing is
+   //required for the current request and is in the next middleware
+   function route handler.
+   next();
+});
+
+app.listen(3000);
+```
+The above middleware is called for every request on the server. So after every request, we will get the following message in the console −
+    A new request received at 1467267512545
+
+To restrict it to a specific route (and all its subroutes), provide that route as the first argument of app.use(). See the [**index.js**](/day-1/hello-world/index.js) file. I have added a middleware before the things route. So wherever I request any route from things route. I will get a console log in my terminal,
+    
+    A request for things received at 1688645794024
+
+### Order of Middleware Calls
+One of the most important things about middleware in Express is the order in which they are written/included in your file; the order in which they are executed, given that the route matches also needs to be considered.
+
+**For example, in the following code snippet, the first function executes first, then the route handler and then the end function. This example summarizes how to use middleware before and after route handler; also how a route handler can be used as a middleware itself.**
+
+```js
+
+var express = require('express');
+var app = express();
+
+//First middleware before response is sent
+app.use(function(req, res, next){
+   console.log("Start");
+   next();
+});
+
+//Route handler
+app.get('/', function(req, res, next){
+   res.send("Middle");
+   next();
+});
+
+app.use('/', function(req, res){
+   console.log('End');
+});
+
+app.listen(3000);
+
+```
+When we visit '/' after running this code, we receive the response as Middle and on our console −
+
+    Start
+    End
+
+The following diagram summarizes what we have learnt about middleware −
+![ExpressJs Middleware](/day-1/hello-world/public/middleware_desc.jpg)
+
+Now that we have covered how to create our own middleware, let us discuss some of the most commonly used community created middleware.
 
 <!-- 
 

@@ -19,11 +19,18 @@ app.all('/test', function(req, res){ //This method is generally used for definin
     res.send("HTTP method doesn't have any effect on this route!");
 });
 
-var routes = require('./routes.js');
+var things = require('./things.js');
 
-app.use('/routes', routes);
+//Middleware function to log request protocol
+app.use('/things', function(req, res, next){
+    console.log("A request for things received at " + Date.now());
+    next();
+});
 
-router.get('*', function(req, res){
+// Route handler that sends the response
+app.use('/things', things);
+
+app.get('*', function(req, res){
     res.send('Sorry, this is an invalid URL.');
 });
 
