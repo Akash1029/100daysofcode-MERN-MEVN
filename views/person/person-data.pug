@@ -1,0 +1,60 @@
+table.min-w-full.border.text-center.text-sm.font-light(class='dark:border-neutral-500')
+    thead.border-b.font-medium(class='dark:border-neutral-500')
+        tr
+        th.border-r.px-6.py-4(scope='col' class='dark:border-neutral-500')
+            | #
+        th.border-r.px-6.py-4(scope='col' class='dark:border-neutral-500')
+            | Name
+        th.border-r.px-6.py-4(scope='col' class='dark:border-neutral-500')
+            | Age
+        th.border-r.px-6.py-4(scope='col' class='dark:border-neutral-500') Nationality
+        th.px-6.py-4(scope='col' class='dark:border-neutral-500') Action
+    tbody
+        each val, key in person
+            tr.border-b(class='dark:border-neutral-500')
+            td.whitespace-nowrap.border-r.px-6.py-4.font-medium(class='dark:border-neutral-500')
+                | #{key + 1}
+            td.whitespace-nowrap.border-r.px-6.py-4(class='dark:border-neutral-500')
+                | #{val.name}
+            td.whitespace-nowrap.border-r.px-6.py-4(class='dark:border-neutral-500')
+                | #{val.age}
+            td.whitespace-nowrap.border-r.px-6.py-4(class='dark:border-neutral-500')
+                | #{val.nationality}
+            td.whitespace-nowrap.border-r.px-6.py-4(class='dark:border-neutral-500')
+                a.bg-blue-500.text-white.font-bold.py-2.px-4.rounded(href=`/person/edit/${val.id}`) Edit
+                a.ml-2.bg-red-500.text-white.font-bold.py-2.px-4.rounded(href=`/person/delete/${val.id}`) Delete
+
+        else 
+            tr.border-b(class='dark:border-neutral-500')
+            td.whitespace-nowrap.border-r.px-6.py-4.font-medium(class='dark:border-neutral-500')
+                | No person found
+    
+//- nav(aria-label='Page navigation')
+//-   ul.inline-flex
+//-   if page_count > 1
+//-     - var n = 1
+//-         while n < page_count+1
+//-             li
+//-                 a.h-10.px-5.text-indigo-600.transition-colors.duration-150.bg-white(class='focus:shadow-outline hover:bg-indigo-100' href="?page="+n)=n++
+if page_count > 1
+    nav.text-center.pt-4(aria-label='Page navigation example')
+        ul.inline-flex.-space-x-px.text-base.h-10
+            li
+                if page_detail.hasPrevPage
+                    a.flex.items-center.justify-center.px-4.h-10.ml-0.leading-tight.text-gray-500.bg-white.border.border-gray-300.rounded-l-lg( class='hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' href=`?page=${page_detail.prevPage}`) Prev
+                else 
+                    a.flex.items-center.justify-center.px-4.h-10.ml-0.leading-tight.text-gray-500.bg-white.border.border-gray-300.rounded-l-lg( class='hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' style="pointer-events: none" disabled href="#") Prev
+            - var n = 1
+                while n < page_count+1
+                    li
+                        if n === page_detail.page
+                            a.flex.items-center.justify-center.px-4.h-10.text-blue-600.border.border-gray-300.bg-blue-50(aria-current='page' class='hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white' href="?page="+n)=n++
+                        else 
+                            a.flex.items-center.justify-center.px-4.h-10.leading-tight.text-gray-500.bg-white.border.border-gray-300( class='hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' href="?page="+n)=n++
+
+                li
+                if page_detail.hasNextPage
+                    a.flex.items-center.justify-center.px-4.h-10.leading-tight.text-gray-500.bg-white.border.border-gray-300.rounded-r-lg( class='hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' href=`?page=${page_detail.nextPage}`) Next
+                else 
+                    a.flex.items-center.justify-center.px-4.h-10.leading-tight.text-gray-500.bg-white.border.border-gray-300.rounded-r-lg( class='hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' style="pointer-events: none" href="#" disabled) Next
+                
