@@ -59,7 +59,8 @@ nodemon index.js
 ```
 
 This will start the server. To test this app, open your browser and go to http://localhost:3000 and a message will be displayed as in the following screenshot.
-[!Hello world](/day-1/hello-world/public/hello-world.png)
+
+![Hello world](/day-1/hello-world/public/hello-world.png)
 
 ## Express Routing
 **_Routing_** refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
@@ -85,6 +86,7 @@ curl -X POST "http://localhost:3000/hello"
 Defining routes like above is very tedious to maintain. To separate the routes from our main index.js file, I'll be Express.Router to call all the routes from routes.js to index file.
 
 The app.use function call on route '/routes' attaches the things router with this route. Now whatever requests our app gets at the '/routes', will be handled by our routes.js router. The '/' route in routes.js is actually a subroute of '/routes'. Visit localhost:3000/routes/ and you will see the following output.
+
 ![Express Router](/day-1/hello-world/public/express-router.png)
 
 Routers are very helpful in separating concerns and keep relevant portions of our code together. They help in building maintainable code. You should define your routes relating to an entity in a single file and include it using the above method in your index.js file.
@@ -103,6 +105,7 @@ add the following code in routes.js file.
     });
 ```
 To test this go to http://localhost:3000/routes/123. The following response will be displayed.
+
 ![Route Parameters](/day-1/hello-world/public/route-parameter.png)
 
 <!-- 
