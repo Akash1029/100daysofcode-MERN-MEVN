@@ -131,4 +131,53 @@ The above code defines the schema for a user and is used to create a Mongoose Mo
 
 Now we have setup all the things for The CRUD. Now we can start working on the CRUD. 
 
-In views folder I have created a user folder which have all the basic files for CRUD. and created all Routes in Index file
+In views folder I have created a user folder which have all the basic files for CRUD. and created all Routes in Index file. And 
+
+### The packages I used in this project are. 
+
+- [body-parser](https://expressjs.com/en/resources/middleware/body-parser.html)
+
+   Node.js body parsing middleware. <br>
+   Parse incoming request bodies in a middleware before your handlers, available under the req.body property.<br>
+   `Note` As req.body’s shape is based on user-controlled input, all properties and values in this object are untrusted and should be validated before trusting. For example, req.body.foo.toString() may fail in multiple ways, for example the foo property may not be there or may not be a string, and toString may not be a function and instead a string or other user input.
+
+   #### Installation
+   ```bash
+      npm install body-parser
+   ```
+
+- [express-session](https://www.npmjs.com/package/express-session)
+
+   HTTP is stateless; in order to associate a request to any other request, you need a way to store user data between HTTP requests. Cookies and URL parameters are both suitable ways to transport data between the client and the server. But they are both readable and on the client side. Sessions solve exactly this problem. You assign the client an ID and it makes all further requests using that ID. Information associated with the client is stored on the server linked to this ID.
+   #### Installation
+   ```bash
+      npm install express-session
+   ```
+
+- [express-flash](https://www.npmjs.com/package/express-flash)
+
+   Flash is an extension of ``connect-flash`` with the ability to define a flash message and render it without redirecting the request. I used this to send messages from server side to client side. 
+   #### Installation
+   ```bash
+      npm i express-flash
+   ```
+
+- [multer](http://expressjs.com/en/resources/middleware/multer.html)
+
+   Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+   
+   **NOTE:** Multer will not process any form which is not multipart (multipart/form-data).
+   #### Installation
+   ```bash
+      npm install --save multer
+   ```
+
+- [mongoose-paginate-v2](https://www.npmjs.com/package/mongoose-paginate-v2)
+
+   A custom pagination library for Mongoose with customizable labels.
+   #### Installation
+   ```bash
+      npm install mongoose-paginate-v2
+   ```
+
+That's It for Today. 😃
