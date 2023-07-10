@@ -1,0 +1,21 @@
+html
+   head
+      title Register
+      link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css")
+      script(src="https://cdn.tailwindcss.com") 
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js")
+   body
+      div.w-full.bg-grey-lighter.h-screen.flex.flex-col.justify-center
+         form.w-96.mx-auto.bg-white.shadow-md.rounded.p-8.mb-4(action="/user/register", method="POST")
+            div.mb-4
+               label(for='name').block.text-grey-darkest.font-bold.mb-2 Name
+               input(type='text', name='name' placeholder='Name').shadow.border.rounded.w-full.p-2.text-xs.text-grey-darker
+            div.mb-4
+               label(for='email').block.text-grey-darkest.font-bold.mb-2 Email
+               input(type='email', name="email", placeholder='email').shadow.border.rounded.w-full.p-2.text-xs.text-grey-darker
+            div.mb-4
+               label(for='password').block.text-grey-darkest.font-bold.mb-2 Password 
+               input(type='password', name="password" placeholder='***********').shadow.border.rounded.w-full.p-2.text-xs.text-grey-darker.mb-3
+            div.flex.items-center.justify-between
+               button(type='submit').bg-blue.text-xs.font-bold.py-2.px-4.rounded Register
+               //- a(href='#').inline-block.font-bold.text-xs.text-blue.no-underline Forgot password?
