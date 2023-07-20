@@ -50,7 +50,10 @@ Feel free to explore the individual project folders for more detailed documentat
 <details>
 <summary>Full List</summary>
 
-- **Days 1:** Learning Express Js (Covering Basic Express JS Methods (_Envirounment, Hello world, Routing, Midleware_ ))
+- **Day 1:** Learning Express Js (Covering Basic Express JS Methods (_Envirounment, Hello world, Routing, Midleware_ ))
+- **Day 2:** Deep diving into the Express JS.
+- **Day 3:** Learned about how session and cookie works in express Js.
+- **Day 4-10:** [Project 1: Authentication app in MERN(MongoDB, Express JS, React JS, Node)](./day-4%20to%20day-10%20/MongoDB/) and [Project 2: Authentication app in MERN(Mysql, Express JS, React JS, Node)](./day-4%20to%20day-10%20/Mysql/)
 </details>
 
 <br>
