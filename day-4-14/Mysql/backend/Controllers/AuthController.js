@@ -130,21 +130,8 @@ module.exports.ForgotPassword = async (req, res) => {
             from: process.env.MAIL_FROM_ADDRESS,
             to: email,
             subject: "Reset Password",
-            // text: text,
             html: `<b>Hello! </b><br> You are receiving this email because we received a password reset request for your account.<br/> <br><a href="http://localhost:5173/reset-password/${convertTokenToHexString}">Reset Password</a><br>Regards<br>Akash Kushwaha`,
         };
-
-        // let transporter = nodemailer.createTransport({
-        //     port: 465,               // true for 465, false for other ports
-        //     host: "smtp.gmail.com",
-        //        auth: {
-        //             user: 'kitlabs35@gmail.com',
-        //             pass: 'olcvukudqcxqcgfg',
-        //          },
-        //     secure: true,
-        // });
-
-        // console.log("transporter", transporter);
 
         transporter.sendMail(mailData, (error, info) => {
             if (error) {
