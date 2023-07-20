@@ -1,7 +1,7 @@
 const {User} = require("../Models/UserModel.js");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const {sequelize} = require("../Config/db");
+const {sequelize} = require("../Config/db.js");
 
 // sequelize.authenticate();
 
